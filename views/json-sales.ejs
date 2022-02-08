@@ -1,0 +1,48 @@
+<%- include('parts/html-head') %>
+<%- include('parts/navbar') %>
+
+<div class="container">
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+    <select class="form-select" aria-label="Default select example">
+      <option selected>Open this select menu</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+    <select class="form-select" aria-label="Default select example">
+      <option selected>Open this select menu</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+  </div>
+
+
+
+    <table class="table table-striped">
+        <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+      </tr>
+    </thead>
+    <tbody>
+        <%  for(let i of sales) { %>
+      <tr>
+        <td> <%= i.id %> </td>
+        <td> <%= i.name %> </td>
+        <td> <%= i.age %> </td>
+      </tr>
+      <% } %>
+    </tbody>
+    </table>
+
+</div>
+
+<%- include('parts/scripts') %>
+<%- include('parts/html-foot') %>
