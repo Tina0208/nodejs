@@ -26,6 +26,7 @@ app.get('/a.html', (req, res)=>{
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(express.static('public'));
+app.use(express.static('node_modules/joi/dist'));
 
 app.use(session({
     secret: 'dfjdklfjdklfjdklsfjirjueifjd;ksmfjdklsfjoifje',
