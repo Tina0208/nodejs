@@ -13,6 +13,7 @@ const fs = require('fs').promises;
 //require('內建套件的id')
 const db = require(__dirname + '/modules/connect-db');
 const sessionStore = new MysqlStore({},db);
+const cors = require('cors');
 
 
 const app = express();
@@ -23,10 +24,11 @@ app.get('/a.html', (req, res)=>{
     res.send(`<h2>動態內容</h2><p>${Math.random()}</p>`);
 });
 */
+app.use(cors());
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(express.static('public'));
-app.use(express.static('node_modules/joi/dist'));
+app.use(express.static('node_modules/joi/dist/'));
 
 app.use(session({
     secret: 'dfjdklfjdklfjdklsfjirjueifjd;ksmfjdklsfjoifje',

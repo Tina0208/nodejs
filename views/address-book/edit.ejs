@@ -7,14 +7,14 @@
         <div class="card-body">
           <h5 class="card-title">新增資料</h5>
           <form name="form1" onsubmit="checkForm(); return false;">
-            <input type="hidden" name="myvar" value="123">
+
             <div class="mb-3">
               <label for="name" class="form-label">name</label>
-              <input type="text" class="form-control" id="name" name="name" />
+              <input type="text" class="form-control" id="name" name="name" value="<%= name %>"/>
             </div>
             <div class="mb-3">
               <label for="email" class="form-label">email</label>
-              <input type="text" class="form-control" id="email" name="email" />
+              <input type="text" class="form-control" id="email" name="email" value="<%= email %>"/>
             </div>
             <div class="mb-3">
               <label for="mobile" class="form-label">mobile</label>
@@ -23,6 +23,7 @@
                 class="form-control"
                 id="mobile"
                 name="mobile"
+                value="<%= mobile %>"
               />
             </div>
             <div class="mb-3">
@@ -32,6 +33,7 @@
                 class="form-control"
                 id="birthday"
                 name="birthday"
+                value="<%= toDateString(birthday) %>"
               />
             </div>
             <div class="mb-3">
@@ -41,6 +43,7 @@
                 class="form-control"
                 id="address"
                 name="address"
+                value="<%= address %>"
               />
             </div>
 
@@ -83,7 +86,10 @@
         }
       }).then(r=>r.json())
       .then(obj=>{
-        console.log(obj);
+          if(!obj.success)
+        {
+            alert('資料沒有修改');
+        };
       });
 
       //application/x-www-form-urlencoded
